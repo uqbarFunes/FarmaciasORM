@@ -1,6 +1,5 @@
 package Entity;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
@@ -16,7 +15,7 @@ public class Vendedor {
 	
 	@Id
 	@GeneratedValue
-	private int id;
+	private int idVendedor;
 	private int numeroDeLegajo;
 	private Date fechaIngreso;
 	

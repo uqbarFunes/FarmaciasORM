@@ -1,6 +1,5 @@
 package Entity;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -18,7 +17,7 @@ public class Farmacia {
 
 	@Id
 	@GeneratedValue
-	private int id;
+	private int idFarmacia;
 	
 	private String nombre;
 	private String localidad;
@@ -35,7 +34,7 @@ public class Farmacia {
 	}
 
 	public int getId() {
-		return id;
+		return idFarmacia;
 	}
 
 	public String getNombre() {

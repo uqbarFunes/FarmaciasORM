@@ -6,12 +6,12 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name ="TipoProducto")
-public class TipoProducto {
+@Table(name ="CategoriaDeProducto")
+public class CategoriaDeProducto {
 	
 	@Id
 	@GeneratedValue
-	private int id;
+	private int idCategoriaDeProducto;
 	
 	private String nombre;
 
