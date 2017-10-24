@@ -18,7 +18,7 @@ public class Cliente {
 
 	@Id
 	@GeneratedValue
-	private int idCliente;
+	private int id;
 	
 	private String nombre;
 	

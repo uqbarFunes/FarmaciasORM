@@ -17,7 +17,7 @@ public class Farmacia {
 
 	@Id
 	@GeneratedValue
-	private int idFarmacia;
+	private int id;
 	
 	private String nombre;
 	private String localidad;
@@ -34,7 +34,7 @@ public class Farmacia {
 	}
 
 	public int getId() {
-		return idFarmacia;
+		return id;
 	}
 
 	public String getNombre() {

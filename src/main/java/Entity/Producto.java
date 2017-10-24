@@ -9,6 +9,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -17,10 +18,10 @@ public class Producto {
 	
 	@Id
 	@GeneratedValue
-	private int idProducto;
-	
-	@ManyToMany(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
-	private List<CategoriaDeProducto> categoriasDeProducto;
+	private int id;
+	//Muchos productos pueden pertenecer a una determinada categoría
+	@ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+	private CategoriaDeProducto categoriaDeProducto;
 	
 	private String descripcion;
 	private String marca;
@@ -32,30 +33,25 @@ public class Producto {
 
 	public Producto() {
 		super();
-		this.categoriasDeProducto = new LinkedList<>() ;
 		this.farmacias = new LinkedList<>();
 	}
 
 	public int getId() {
-		return idProducto;
+		return id;
 	}
 
 	public void setId(int id) {
-		this.idProducto = id;
+		this.id = id;
 	}
 
 
-	public void setCategoriasDeProducto(List<CategoriaDeProducto> myTipos) {
-		this.categoriasDeProducto = myTipos;
-	}
-	
 	public List<Farmacia> getFarmacias() {
 		return farmacias;
 	}
 	
-	public void addCategoriaDeProducto( CategoriaDeProducto myCategoria )
+	public void setCategoriaDeProducto( CategoriaDeProducto myCategoria )
 	{
-		this.categoriasDeProducto.add(myCategoria) ;
+		this.categoriaDeProducto=myCategoria ;
 	}
 	
 	public void addFarmacia(Farmacia farmacia){
@@ -94,8 +90,8 @@ public class Producto {
 		this.precioLista = myPrecioLista;
 	}
 	
-	public List<CategoriaDeProducto> getCategoriasDeProducto() {
-		return this.categoriasDeProducto;
+	public CategoriaDeProducto getCategoriaDeProducto() {
+		return this.categoriaDeProducto;
 	}
 	
 	public void setFarmacias(List<Farmacia> farmacias) {

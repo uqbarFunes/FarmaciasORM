@@ -15,7 +15,8 @@ public class Vendedor {
 	
 	@Id
 	@GeneratedValue
-	private int idVendedor;
+	private int id;
+	
 	private int numeroDeLegajo;
 	private Date fechaIngreso;
 	
