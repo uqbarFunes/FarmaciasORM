@@ -8,18 +8,17 @@
     <persistence-unit name="db" transaction-type="RESOURCE_LOCAL">
     	<provider>org.hibernate.ejb.HibernatePersistence</provider>
     	
-    	<class>Entity.Farmacia</class>
-    	<class>Entity.Vendedor</class>
-    	<class>Entity.Producto</class>
-    	<class>Entity.TipoProducto</class>
-    	<class>Entity.Cliente</class>
+    	<class>Entity.Periodo</class>
+    	<class>Entity.Empresa</class>
+    	<class>Entity.Cuenta</class>
+    	<class>Entity.Indicador</class>
 
     	 
         <properties> 
 	    <property name="hibernate.archive.autodetection" value="class"/>        
         
             <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver" /> 
-            <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/redfarmacias" /> 
+            <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/SistemaInversiones" /> 
             <property name="hibernate.connection.username" value="root" /> 
             <property name="hibernate.connection.password" value="qweassdd" /> 
 

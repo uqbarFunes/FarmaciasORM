@@ -80,11 +80,11 @@ public class Main {
 		
 		
 		Query prodQuery = entityManager.createQuery("select (b) from Producto b") ;
-		List <Producto> list = prodQuery.getResultList();
+		List <Producto> rawListaProductos = prodQuery.getResultList();
 		System.out.println("Las cosas que me traigo...");
 		ArrayList<String> listOutput = new ArrayList<String> () ;
 		
-		list.forEach(e -> {
+		rawListaProductos.forEach(e -> {
 			StringBuilder output = new StringBuilder() ;
 			output.append(String.format("ID: %02d\t",e.getId()));
 			output.append(String.format("Descripction: %-35s\t", e.getDescripcion()));
@@ -103,9 +103,9 @@ public class Main {
 			
 		});
 		
-//		System.out.println("Veo si encuentro el producto de ID: 17");
-//		Producto pId16 = entityManager.find(Producto.class, 17) ;
-//		pId16.setId(45);
+		System.out.println("Veo si encuentro el producto de ID: 17");
+		Producto pId16 = entityManager.find(Producto.class, 17) ;
+		pId16.setMarca("Esta marca le puse ahora!");
 //		
 //		EntityManagerHelper.beginTransaction();
 //		entityManager.merge(pId16);
@@ -121,19 +121,19 @@ public class Main {
 //			productos[i] = entityManager.find(Producto.class, i) ;
 //		}
 		
-		EntityManagerHelper.beginTransaction();
-		
-		
-		 entityManager.persist(vendedor_ale);
-		 entityManager.persist(vendedor_elio);
-		 entityManager.persist(vendedor_flor);
-		 entityManager.persist(vauquita);
-		 entityManager.persist(dove);
-		 entityManager.persist(cif) ;
-		 
-		
-		entityManager.flush();
-		EntityManagerHelper.commit();		
+//		EntityManagerHelper.beginTransaction();
+//		
+//		
+//		 entityManager.persist(vendedor_ale);
+//		 entityManager.persist(vendedor_elio);
+//		 entityManager.persist(vendedor_flor);
+//		 entityManager.persist(vauquita);
+//		 entityManager.persist(dove);
+//		 entityManager.persist(cif) ;
+//		 
+//		
+//		entityManager.flush();
+//		EntityManagerHelper.commit();		
 		
 		
 		
