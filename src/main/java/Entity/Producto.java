@@ -4,10 +4,13 @@ import java.util.LinkedList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
@@ -28,13 +31,14 @@ public class Producto {
 	private int precioCosto;
 	private int precioLista;
 	
-	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<Farmacia> farmacias;
 
 	public Producto() {
 		super();
 		this.farmacias = new LinkedList<>();
 	}
+	
+	
 
 	public int getId() {
 		return id;
@@ -44,7 +48,10 @@ public class Producto {
 		this.id = id;
 	}
 
-
+	
+	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JoinTable(name="farmaciasPorProducto", joinColumns= {
+			@JoinColumn(name="CatProd")})
 	public List<Farmacia> getFarmacias() {
 		return farmacias;
 	}
@@ -73,7 +80,7 @@ public class Producto {
 	public void setMarca(String myMarca) {
 		this.marca = myMarca;
 	}
-	
+	@Column(name="CostoPrice")
 	public int getPrecioCosto() {
 		return precioCosto;
 	}
@@ -89,7 +96,7 @@ public class Producto {
 	public void setPrecioLista(int myPrecioLista) {
 		this.precioLista = myPrecioLista;
 	}
-	
+	@Column(name="CatProd")
 	public CategoriaDeProducto getCategoriaDeProducto() {
 		return this.categoriaDeProducto;
 	}
